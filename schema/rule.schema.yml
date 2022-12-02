@@ -1,0 +1,24 @@
+$id: schema/rule.schema.yml
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Rule
+required:
+  - action
+  - conditions
+type: object
+properties:
+  action: 
+    type: string
+    enum:
+      - enable
+      - disable
+      #TODO: Extend this
+  conditions:
+    type: object
+    properties:
+      os:
+        type: string
+      arch:
+        type: string
+      version:
+        type: string
+      #TODO: Extend this

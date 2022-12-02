@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=https://json-schema.org/draft/2020-12/schema
+$id: schema/profile.schema.yml
+type: object
+required: 
+  - minecraft
+properties:
+  minecraft:
+    title: Instance Settings
+    description: 
+      This is main file for setting up a instance for Starlight Launcher.
+      It should have notation how and what to launch, like minecraft version and so on.
+      Keep in mind it is public information and in theory anyone can acces this file.
+    type: object
+    required: 
+      - name
+      - version 
+      - arguments
+      - classpath
+      - mainclass
+    properties:
+      name:
+        title: Name of Minecraft Instance
+        description: "
+          This is used to launch minecraft from updates folder.\n\n
+          e.g. if we have `name: 1.12.2` launcher will try to launch a minecraft from folder `updates/1.12.2`"
+        type: string
+      title:
+        title: Title of Minecraft Instance
+        description:
+          A fancy looking name that may be drawn in launcher
+        type: string
+      version:
+        title: Minecraft version
+        description:
+          Minecraft version to launch. I don't know what will hapen if you misconfigure it.
+        type: string
+      mods:
+        title: Mod list
+        description: "
+          A list of mods. Use the fancy name of mod as a key"
+        type: object
+        patternProperties:
+          ^.+$:
+            $ref: ./mod.schema.yml
+      arguments:
+        title: Custom launch arguments
+        description:
+          I think there's some arguments that necessary to launch the game on certain platforms, 
+          see defaultProfile and change it your own risk.
+        type: object
+        properties:
+          jvm:
+            title: Java Virtual Machine Arguments
+            description:
+              Where the magic really happen. You may use rule syntax or plain string.
+              Keep in mind description of `arguments` object
+            $ref: ./ruledStringArray.schema.yml
+          client:
+            title: Client arguments
+            description:
+              I'm not entirely sure why would you add something here.
+            $ref: ./ruledStringArray.schema.yml
+      classpath:
+        title: Class path
+        description:
+          A list of minecraft libraries including client.
+          You can just write `libraries` and it will scan entire folder though i can't recomend this
+          as some minecraft libraries are OS dependent and you need to enforce rules for it.
+        $ref: ./ruledStringArray.schema.yml
+      mainclass:
+        title: Main Class
+        description: 
+          A class to launch minecraft with.
+          Also you will need to make sure you use modloader class and not vanilla.
+          check https://wiki.vg/Launching_the_game#Main_class for more info
+      java:
+        title: java version to use 
+        description:
+          Should be set up as in server config. E.G. Java17
+        type: string

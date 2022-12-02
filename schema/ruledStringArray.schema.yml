@@ -1,0 +1,18 @@
+$id: schema/ruledStringArray.schema.yml
+$schema: https://json-schema.org/draft/2020-12/schema
+type: array
+items:
+  anyOf:
+    -
+      title: Element with a rule
+      type: object
+      properties:
+        rules:
+          type: array
+          items:
+            $ref: ./rule.schema.yml
+          value:
+            type: string
+    -
+      title: Plain Element
+      type: string

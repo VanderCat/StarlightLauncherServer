@@ -1,0 +1,68 @@
+$id: schema/mod.schema.yml
+$schema: https://json-schema.org/draft/2020-12/schema
+title: "Mod Entry"
+description: 
+  "A mod that will be added to minecraft instance.
+  It will be configurable in menu if specified."
+required":
+  - file
+type: object
+properties:
+  file:
+    title: Mod File
+    description:
+      Path to mod file. If path separator is present launcher will move the file on launch.
+    type: string
+  dependsOn:
+    title: Dependencies
+    description:
+      Name of the parent mod(s)
+    anyOf:
+      - 
+        title: Mod Name
+        type: string
+      - 
+        type: array
+        items:
+          title: Mod Name
+          type: string
+  conflictsWith:
+    title: Conflicts
+    description:
+      Name of the parent mod(s)
+    anyOf:
+      - 
+        title: Mod Name
+        type: string
+      - 
+        type: array
+        items:
+          title: Mod Name
+          type: string
+  indent:
+    title: Indent of the entry
+    description:
+      "[EXPEREMENTAL] Make look of your mod list fancier with indentations (Mainly for visualy marking dependecies)"
+    type: integer
+  description:
+    title: Description of Mod
+    description:
+      "Optional.\n
+      Will be seen in Mod configuration screen. Supports Markdown"
+    type: string
+  optional:
+    description:
+      Whether user can disable this mod or not
+    type: boolean
+  visible:
+    description:
+      Whether user can see this mod on configuration screen or not. Obviously optional will be ignored
+    type: boolean
+  enabled:
+    description:
+      Whether mod enabled or disabled by default
+    type: boolean
+  rules:
+    type: array
+    items:
+      $ref: ./rule.schema.yml
