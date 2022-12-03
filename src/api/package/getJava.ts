@@ -47,7 +47,7 @@ export default function(req: express.Request, res: express.Response) {
     const platform: NodeJS.Platform = req.body.platform
     const arch: NodeJS.Architecture = req.body.arch
     const availableArchs = config.java[platform]||{}//FIXME
-    const availablePaths = availableArchs["x64"]||{}//FIXME
+    const availablePaths = availableArchs[arch]||{}//FIXME
     const javaPath = availablePaths["Java17"]||""//FIXME
     const filter = typeof javaPath == "string"
     if (filter) {

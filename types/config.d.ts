@@ -24,6 +24,7 @@ interface JavaPlatform {
     arm32?: JavaVersion,
 }
 interface JavaVersion { // i bet there's better way
+    [key: string]: string,
     Java8?: string,
     Java9?: string
     Java10?: string
