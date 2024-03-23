@@ -17,6 +17,8 @@ properties:
       - arguments
       - classpath
       - mainclass
+      - java
+      - assets
     properties:
       name:
         title: Name of Minecraft Instance
@@ -42,6 +44,19 @@ properties:
         patternProperties:
           ^.+$:
             $ref: ./mod.schema.yml
+      skipCheck:
+        title: Skip check for these files
+        description: launcher will not check this folder when redownloading
+        type: array
+        items:
+          type: string
+      forceCheck:
+        title: Force check for these folders
+        description: launcher will always check files in this folder and delete
+          any extra file (e.g. for security reasons or auto remove old files)
+        type: array
+        items:
+          type: string
       arguments:
         title: Custom launch arguments
         description:
@@ -77,4 +92,7 @@ properties:
         title: java version to use 
         description:
           Should be set up as in server config. E.G. Java17
+        type: string
+      assets:
+        title: Asset folder name
         type: string

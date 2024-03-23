@@ -7,7 +7,8 @@ export default {
     adminSecret: "INEEDYOUTOCHANGEME",
     updateFolders: [
         "1.19.2",
-        "assets"
+        "assets",
+        "HexMC"
     ],
     java: {
         location: "java",

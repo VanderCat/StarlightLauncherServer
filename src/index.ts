@@ -6,7 +6,7 @@ import api from "./api"
 const app = express()
 
 app.use(cors())
-app.options('*', cors())
+//app.options('*', cors())
 
 app.use(express.static('public'))
 app.use("/schema", express.static('schema'))

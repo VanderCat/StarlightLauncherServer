@@ -12,7 +12,17 @@ properties:
     title: Mod File
     description:
       Path to mod file. If path separator is present launcher will move the file on launch.
-    type: string
+    anyOf:
+      - 
+        title: Filename
+        description: in format mods/file.jar:original/location/of/file.jar
+        type: string
+      - 
+        type: array
+        items:
+          title: Filename
+          description: in format mods/file.jar:original/location/of/file.jar
+          type: string
   dependsOn:
     title: Dependencies
     description:

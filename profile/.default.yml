@@ -3,6 +3,7 @@ minecraft:
   title: Default Preset
   name: default 
   version: "1.19.2"
+  assets: assets
   java: Java17
   mods:
     Quilted Fabric API (QFAPI) / Quilt Standard Libraries (QSL):
@@ -10,6 +11,11 @@ minecraft:
       description: The standard libraries of the Quilt ecosystem. Essential for your modding experience on Quilt!
       optional: false
       visible: true
+  skipCheck:
+    - config
+  forceCheck:
+    - mods
+    - libraries
   arguments:
     jvm: 
       - 

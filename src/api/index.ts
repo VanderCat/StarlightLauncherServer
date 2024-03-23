@@ -11,4 +11,8 @@ import Profiles from "./profiles"
 router.post("/profiles.get", Profiles.get)
 router.post("/profiles.list", Profiles.list)
 
+import Articles from "./articles"
+router.post("/articles.get", Articles.get)
+router.get("/articles.list", Articles.list)
+
 export default router
