@@ -89,3 +89,9 @@ export async function getCache(path:string) {
     }
     else return Cache[cacheName]
 }
+
+
+export default {
+    generateDirectoryCache,
+    getCache
+}
