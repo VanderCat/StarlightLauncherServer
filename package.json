@@ -1,6 +1,6 @@
 {
-  "name": "mc-launchserver",
-  "version": "0.0.1",
+  "name": "starlight-server",
+  "version": "0.2",
   "main": "src/index.ts",
   "author": "VanderCat",
   "license": "MIT",
