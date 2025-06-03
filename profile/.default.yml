@@ -18,31 +18,23 @@ minecraft:
     - libraries
   arguments:
     jvm: 
-      - 
-        rules:
-          -
-            action: enable
+      - rules:
+          - action: enable
             conditions:
               os: darwin
         value: -XstartOnFirstThread
-      - 
-        rules:
-          -
-            action: enable
+      - rules:
+          - action: enable
             conditions:
               os: win32
         value: -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
-      - 
-        rules:
-          -
-            action: enable
+      - rules:
+          - action: enable
             conditions:
               arch: x86
         value: -Xss1M
-      - 
-        rules:
-          -
-            action: enable
+      - rules:
+          - action: enable
             conditions:
               version: ^(Windows 10)
         value:

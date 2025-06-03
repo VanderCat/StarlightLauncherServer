@@ -11,17 +11,17 @@ properties:
   file:
     title: Mod File
     description:
-      Path to mod file. If path separator is present launcher will move the file on launch.
+      "Path to mod file. If not begins with mods/ then it can be made optional and will be passed in --fabric.addMods argument. (FIXME: is anything like this possible in forge?)"
     anyOf:
       - 
         title: Filename
-        description: in format mods/file.jar:original/location/of/file.jar
+        description: in format path/to/file.jar
         type: string
       - 
         type: array
         items:
           title: Filename
-          description: in format mods/file.jar:original/location/of/file.jar
+          description: in format path/to/file.jar
           type: string
   dependsOn:
     title: Dependencies
@@ -39,7 +39,7 @@ properties:
   conflictsWith:
     title: Conflicts
     description:
-      Name of the parent mod(s)
+      Name of the parent mod(s). When enabling a mod every mod it conflicts with should be disabled or a user should no be able to save.
     anyOf:
       - 
         title: Mod Name
