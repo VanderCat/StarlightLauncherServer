@@ -41,8 +41,7 @@ properties:
         description: "
           A list of mods. Use the fancy name of mod as a key"
         type: object
-        patternProperties:
-          ^.+$:
+        additionalProperties:
             $ref: ./mod.schema.yml
       skipCheck:
         title: Skip check for these files
