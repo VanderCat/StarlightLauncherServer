@@ -4,7 +4,7 @@ import fs from "fs-extra"
 import Path from 'path'
 import crypto from 'crypto'
 
-const Cache:CacheHolder = {}
+export const Cache:CacheHolder = {}
 
 async function asyncForEach(array: Array<any>, callback:(v:any, i:number, arr:any[]) => Promise<any>) {
     for (let index = 0; index < array.length; index++) {
@@ -93,5 +93,6 @@ export async function getCache(path:string) {
 
 export default {
     generateDirectoryCache,
-    getCache
+    getCache,
+    Cache
 }

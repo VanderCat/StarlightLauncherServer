@@ -44,7 +44,7 @@ try {
             }
             if (prefix == "java") {
                 try {
-                    await cache.generateDirectoryCache("java")
+                    cache.Cache["java"] = await cache.generateDirectoryCache("java")
                 } 
                 catch (error) {
                     console.error(error)
@@ -54,7 +54,8 @@ try {
             }
             else if (prefix == "package") {
                 try {
-                await cache.generateDirectoryCache("updates/"+args.join(" "))
+                    const cacheName = args.join("updates/"+args.join(" "))
+                    cache.Cache[cacheName] = await cache.generateDirectoryCache(cacheName)
                 } 
                 catch (error) {
                     console.error(error)
