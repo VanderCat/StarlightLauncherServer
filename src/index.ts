@@ -54,8 +54,8 @@ try {
             }
             else if (prefix == "package") {
                 try {
-                    const cacheName = args.join("updates/"+args.join(" "))
-                    cache.Cache[cacheName] = await cache.generateDirectoryCache(cacheName)
+                    const cacheName = "updates/"+args.join(" ")
+                    cache.Cache[args.join(" ")] = await cache.generateDirectoryCache(cacheName)
                 } 
                 catch (error) {
                     console.error(error)
